@@ -1,0 +1,6 @@
+@Splitwise_HostAddress = http://localhost:5159
+
+GET {{Splitwise_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
