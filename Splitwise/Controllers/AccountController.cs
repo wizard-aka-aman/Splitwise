@@ -113,8 +113,15 @@ namespace Angular_Pad.Controllers
             await _signInManager.SignOutAsync();
             return Json("User Logout");
         }
-         
 
-        
+        [HttpGet("getallusers")]
+        public async Task<List<string>> getallusers()
+        {
+
+            var items = await _userManager.Users.Select(e => e.UserName ).ToListAsync();
+            return items;
+        }
+
+
     }
 }

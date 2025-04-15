@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Splitwise.Model;
 
@@ -11,9 +12,11 @@ using Splitwise.Model;
 namespace Splitwise.Migrations
 {
     [DbContext(typeof(SplitwiseContext))]
-    partial class SplitwiseContextModelSnapshot : ModelSnapshot
+    [Migration("20250414103420_update_Expense adding Description colummn")]
+    partial class update_ExpenseaddingDescriptioncolummn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -25,6 +25,10 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 }).AddEntityFrameworkStores<SplitwiseContext>();
 
 
+builder.Services.AddScoped<IGroupRepository,GroupRepository>();
+builder.Services.AddScoped<IExpenseRepository,ExpenseRepository>();
+
+
 //JWT
 builder.Services.AddAuthentication(options =>
 {

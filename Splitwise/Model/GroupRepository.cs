@@ -1,0 +1,85 @@
+﻿
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Splitwise.Dto; 
+namespace Splitwise.Model
+{
+    public class GroupRepository : IGroupRepository
+    {
+        private readonly SplitwiseContext _splitwiseContext;
+
+        public GroupRepository(SplitwiseContext splitwiseContext)
+        {
+            _splitwiseContext = splitwiseContext;
+        }
+         
+
+        public async Task<bool> CreateGroup(Group group)
+        {
+            if (group != null) {
+                _splitwiseContext.Group.Add(group);
+                await _splitwiseContext.SaveChangesAsync();
+
+                return true;
+            }
+            return false;
+        }
+       
+        public async Task<IEnumerable<Group>> GetAll(string name)
+        {
+            var AllItemGroupMember =   _splitwiseContext.GroupMember.Include(e => e.Group).ToList();
+            List<Group> gp = new List<Group>();
+
+            for (int i = 0; i < AllItemGroupMember.Count; i++)
+            {
+                if (AllItemGroupMember[i].UserNames.Contains(name))
+                {
+                    gp.Add(AllItemGroupMember[i].Group);
+                }
+            }
+            //var AllItem = await _splitwiseContext.Group.Where(e => e.CreatedBy == name)
+            //    .ToListAsync();
+            return gp;
+        }
+
+        public async Task<bool> AddMember(int id, List<string> users)
+        {
+            // Find the group by id
+            var group = await _splitwiseContext.Group.FirstOrDefaultAsync(g => g.GroupId == id);
+            if (group == null)
+                return false; // Group doesn't exist
+
+            // Try to find an existing GroupMember record for this group
+            var groupMember = await _splitwiseContext.GroupMember
+                .Include(gm => gm.Group)
+                .FirstOrDefaultAsync(gm => gm.Group.GroupId == id);
+
+            if (groupMember != null)
+            {
+                // Update the existing member list
+                groupMember.UserNames = users;
+                _splitwiseContext.GroupMember.Update(groupMember);
+            }
+            else
+            {
+                // Create a new GroupMember record
+                var newMember = new GroupMember
+                {
+                    Group = group,
+                    UserNames = users
+                };
+                await _splitwiseContext.GroupMember.AddAsync(newMember);
+            }
+
+            await _splitwiseContext.SaveChangesAsync();
+            return true;
+        }
+
+        public    List<List<string>> GetMemberofGroup(int id) {
+            var GetMemberofGroup = _splitwiseContext.GroupMember.Include(gm => gm.Group).Where(e => e.Group.GroupId == id).Select(e => e.UserNames).ToList();
+
+            return GetMemberofGroup;
+        }
+
+    }
+}

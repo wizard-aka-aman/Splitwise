@@ -1,0 +1,47 @@
+﻿using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Mvc;
+using Splitwise.Dto;
+using Splitwise.Model;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Splitwise.Controllers
+{
+    [Route("[controller]")]
+    [ApiController]
+    public class ExpenseController : Controller
+    {
+        private readonly IExpenseRepository _expenseRepository;
+
+        public ExpenseController(IExpenseRepository expenseRepository)
+        {
+            _expenseRepository = expenseRepository;
+        }
+
+        
+        [HttpPost("createexpense")]
+        public async Task<IActionResult> CreateExpense([FromBody] ExpenseDTO expensedto)
+        {
+            if (expensedto.paidto.Count() <= 0)
+            {
+                return BadRequest("Please select Atleast one member");
+            }
+            var expense = await _expenseRepository.CreateExpense(expensedto);
+            return Ok(new { expense, result = "Expense Created" });
+        }
+
+        [HttpGet("GetExpenseByUser/{id}/{name}")]
+        public  decimal  GetExpenseByUser( string name ,int id)
+        { 
+            var expense =  _expenseRepository.GetExpenseByUser(name ,id);
+            return expense;
+        }
+        [HttpGet("GetExpenseForEveryUser/{id}/{name}")]
+        public IActionResult GetExpenseForEveryUser(string name, int id)
+        {
+            var expense = _expenseRepository.GetExpenseForEveryUser(name, id);
+            return Ok(expense);
+        }
+        
+
+    }
+}
