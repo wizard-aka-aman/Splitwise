@@ -10,11 +10,12 @@ namespace Splitwise.Controllers
     [ApiController]
     public class ExpenseController : Controller
     {
-        private readonly IExpenseRepository _expenseRepository;
+        private readonly IExpenseRepository _expenseRepository; 
 
-        public ExpenseController(IExpenseRepository expenseRepository)
+        public ExpenseController(IExpenseRepository expenseRepository )
         {
             _expenseRepository = expenseRepository;
+             
         }
 
         
@@ -42,6 +43,26 @@ namespace Splitwise.Controllers
             return Ok(expense);
         }
         
+        
+        [HttpGet("GetDescription/{id}")]
+        public IActionResult GetDescription(int id)
+        {
+            var expense = _expenseRepository.GetDescription(id);
+            return Ok(expense);
+        }
 
+        [HttpGet("GetActivity/{name}")]
+        public List<ExpenseWithGroupNameDTO> GetActivity(string name)
+        {
+
+            var items = _expenseRepository.GetAllActivity(name);
+            return items;
+        }
+        [HttpGet("TotalExpense/{id}")]
+        public decimal TotalExpense(int id)
+        {
+            return _expenseRepository.TotalExpense(id);
+        }
     }
+
 }

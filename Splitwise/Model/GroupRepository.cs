@@ -19,16 +19,20 @@ namespace Splitwise.Model
             if (group != null) {
                 _splitwiseContext.Group.Add(group);
                 await _splitwiseContext.SaveChangesAsync();
+                await AddMember(group.GroupId, new List<string> { group.CreatedBy});
+                await _splitwiseContext.SaveChangesAsync();
 
                 return true;
             }
             return false;
         }
        
-        public async Task<IEnumerable<Group>> GetAll(string name)
+        public List<Group> GetAll(string name)
         {
             var AllItemGroupMember =   _splitwiseContext.GroupMember.Include(e => e.Group).ToList();
             List<Group> gp = new List<Group>();
+            //SortedSet<Group> gp = new SortedSet<Group>();
+
 
             for (int i = 0; i < AllItemGroupMember.Count; i++)
             {
@@ -37,8 +41,11 @@ namespace Splitwise.Model
                     gp.Add(AllItemGroupMember[i].Group);
                 }
             }
-            //var AllItem = await _splitwiseContext.Group.Where(e => e.CreatedBy == name)
-            //    .ToListAsync();
+             
+            //var AllItem = await _splitwiseContext.Group.Where(e => e.CreatedBy == name).ToListAsync();
+            //foreach (var group in AllItem) {
+            //    gp.Add(group);
+            //}
             return gp;
         }
 

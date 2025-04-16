@@ -34,7 +34,69 @@ namespace Splitwise.Model
             }
             return expense;
         }
-        
+        public async Task<Expense> CreateExpenseByAdjustment(ExpenseDTO expensedto)
+        {
+            Expense expense = new Expense();
+            for (int i = 0; i < expensedto.paidto.Count(); i++)
+            {
+                expense = new Expense
+                {
+                    AddedWhen = DateTime.Now,
+                    GroupId = expensedto.groupid,
+                    PaidBy = expensedto.paidby,
+                    Amount = expensedto.amount / expensedto.paidto.Count(),
+                    PaidTo = expensedto.paidto[i],
+                    Description = expensedto.description
+
+                };
+                _splitwiseContext.Expense.Add(expense);
+                await _splitwiseContext.SaveChangesAsync();
+            }
+            return expense;
+        }
+
+        public List<ExpenseWithGroupNameDTO> GetAllActivity(string name)
+        {
+            var userGroups = _groupRepository.GetAll(name); // Assume this gives List<Group> with GroupId and GroupName
+
+            // Create a dictionary for fast groupId -> groupName lookup
+            var groupDict = userGroups.ToDictionary(g => g.GroupId, g => g.Name);
+
+            // Get all expenses in a single DB call where group is in user's groups
+            var groupIds = groupDict.Keys.ToList();
+
+            var expenses = _splitwiseContext.Expense
+                .Where(e => groupIds.Contains(e.GroupId))
+                .ToList();
+
+            // Map to custom object with group name and sort
+            var result = expenses
+                .Select(e => new ExpenseWithGroupNameDTO
+                {
+                    Id = e.Id,
+                    GroupId = e.GroupId,
+                    PaidBy = e.PaidBy,
+                    PaidTo = e.PaidTo,
+                    Amount = e.Amount,
+                    AddedWhen = e.AddedWhen,
+                    Description = e.Description,
+                    GroupName = groupDict[e.GroupId] // quick lookup
+                })
+                .OrderByDescending(e => e.AddedWhen)
+                .ToList();
+
+            return result;
+
+        }
+
+        public List<Expense> GetDescription(int id)
+        {
+
+            var getfullexpense = _splitwiseContext.Expense.Where(e => e.GroupId == id).OrderByDescending(e => e.AddedWhen).ToList();
+            return getfullexpense;
+
+        }
+
         public decimal GetExpenseByUser(string name , int id)
         {
             decimal RecieveAmount = _splitwiseContext.Expense.
@@ -71,10 +133,14 @@ namespace Splitwise.Model
                 ls.Add(kp);
 
             }
-
-
-           
             return ls;
+        }
+
+        public decimal TotalExpense(int id)
+        {
+            decimal total = 0;
+          total =  _splitwiseContext.Expense.Where(e => e.GroupId == id).Sum(e => e.Amount);
+            return total;
         }
     }
 }

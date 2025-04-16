@@ -17,7 +17,7 @@ namespace Splitwise.Controllers
         }
 
         [HttpPost("creategroup")]
-        public async Task<IActionResult> Index([FromBody] Group group)
+        public async Task<IActionResult> Creategroup([FromBody] Group group)
         {
             var items = await _groupRepository.CreateGroup(group);
             if (items == false)
@@ -28,10 +28,10 @@ namespace Splitwise.Controllers
 
         }
         [HttpGet("getallgroup/{name}")]
-        public async Task<IEnumerable<Group>> GetAllGroup(string name)
+        public  List<Group> GetAllGroup(string name)
         {
 
-            var items = await _groupRepository.GetAll(name);
+            var items =   _groupRepository.GetAll(name);
             return items;
         }
         //addmember/3
@@ -49,5 +49,8 @@ namespace Splitwise.Controllers
             var items = _groupRepository.GetMemberofGroup(id);
             return items;
         }
+
+       
+
     }
 }
