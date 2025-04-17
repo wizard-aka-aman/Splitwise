@@ -5,7 +5,7 @@ namespace Splitwise.Model
     public interface IExpenseRepository
     {
         Task<Expense> CreateExpense(ExpenseDTO expensedto); 
-        Task<Expense> CreateExpenseByAdjustment(ExpenseDTO expensedto);
+        Task<Expense> CreateExpenseByAdjustment(CreateExpenseByAdjustmentDTO expensedto);
         decimal GetExpenseByUser(string name ,int id);
 
         List<KeyValuePair<string, decimal>>  GetExpenseForEveryUser(string name, int id);

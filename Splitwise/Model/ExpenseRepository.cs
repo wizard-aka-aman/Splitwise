@@ -1,5 +1,7 @@
 ﻿
+using System;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Splitwise.Dto;
 
 namespace Splitwise.Model
@@ -34,23 +36,34 @@ namespace Splitwise.Model
             }
             return expense;
         }
-        public async Task<Expense> CreateExpenseByAdjustment(ExpenseDTO expensedto)
+        public async Task<Expense> CreateExpenseByAdjustment(CreateExpenseByAdjustmentDTO expensedto)
         {
             Expense expense = new Expense();
-            for (int i = 0; i < expensedto.paidto.Count(); i++)
+            int times = expensedto.paidto.Count();
+
+            // Convert to SortedDictionary
+            var paidToDict = new Dictionary<string, decimal>(
+                expensedto.paidto.ToDictionary(x => x.name, x => x.@decimal)
+            );
+            var KeysList = paidToDict.Keys.ToList();
+
+            for (int i = 0; i < times; i++)
             {
+                if (paidToDict[KeysList[i]] > 0) { 
                 expense = new Expense
                 {
                     AddedWhen = DateTime.Now,
                     GroupId = expensedto.groupid,
                     PaidBy = expensedto.paidby,
-                    Amount = expensedto.amount / expensedto.paidto.Count(),
-                    PaidTo = expensedto.paidto[i],
+                    Amount = paidToDict[KeysList[i]],
+                    PaidTo = KeysList[i],
                     Description = expensedto.description
 
                 };
+                 
                 _splitwiseContext.Expense.Add(expense);
                 await _splitwiseContext.SaveChangesAsync();
+                }
             }
             return expense;
         }

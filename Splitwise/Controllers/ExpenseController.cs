@@ -29,6 +29,18 @@ namespace Splitwise.Controllers
             var expense = await _expenseRepository.CreateExpense(expensedto);
             return Ok(new { expense, result = "Expense Created" });
         }
+        
+
+        [HttpPost("CreateExpenseByAdjustment")]
+        public async Task<IActionResult> CreateExpenseByAdjustment([FromBody] CreateExpenseByAdjustmentDTO expensedto)
+        {
+            if (expensedto.paidto.Count() <= 0)
+            {
+                return BadRequest("Please select Atleast one member");
+            }
+            var expense = await _expenseRepository.CreateExpenseByAdjustment(expensedto);
+            return Ok(new { expense, result = "Expense Created" });
+        }
 
         [HttpGet("GetExpenseByUser/{id}/{name}")]
         public  decimal  GetExpenseByUser( string name ,int id)
