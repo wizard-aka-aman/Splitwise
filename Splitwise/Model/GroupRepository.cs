@@ -8,10 +8,19 @@ namespace Splitwise.Model
     {
         private readonly SplitwiseContext _splitwiseContext;
 
-        public GroupRepository(SplitwiseContext splitwiseContext)
+
+        private readonly Lazy<IExpenseRepository> _expenseRepository;
+
+        public GroupRepository(SplitwiseContext splitwiseContext, Lazy<IExpenseRepository> expenseRepository)
         {
             _splitwiseContext = splitwiseContext;
+            _expenseRepository = expenseRepository;
         }
+
+        //public GroupRepository(SplitwiseContext splitwiseContext)
+        //{
+        //    _splitwiseContext = splitwiseContext; 
+        //}
          
 
         public async Task<bool> CreateGroup(Group group)
@@ -38,6 +47,7 @@ namespace Splitwise.Model
             {
                 if (AllItemGroupMember[i].UserNames.Contains(name))
                 {
+                    if(AllItemGroupMember[i].Group.IsDeleted==false)
                     gp.Add(AllItemGroupMember[i].Group);
                 }
             }
@@ -102,6 +112,34 @@ namespace Splitwise.Model
             return true;
 
             
+        }
+
+        public async Task<bool> DeleteGroup(string name, int id)
+        {
+            if(id == 0)
+            {
+                return false;
+            }
+            var GetGroup = await _splitwiseContext.Group.FindAsync(id);
+            var expenseRepo = _expenseRepository.Value;
+            List<KeyValuePair<string, decimal>> GetExpenseForEveryUser = expenseRepo.GetExpenseForEveryUser(name , id);
+
+            var KeysOfUsers = GetExpenseForEveryUser;
+
+            decimal sum = 0;
+
+            for (int i = 0; i < GetExpenseForEveryUser.Count(); i++)
+            {
+                sum += Math.Abs(GetExpenseForEveryUser[i].Value);
+            }
+
+            if (GetGroup != null && sum == 0)
+            {
+                GetGroup.IsDeleted = true;
+            await _splitwiseContext.SaveChangesAsync(); 
+            return true;
+            }
+            return false;
         }
     }
 }

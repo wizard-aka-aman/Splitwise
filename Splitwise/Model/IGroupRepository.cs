@@ -9,6 +9,7 @@ namespace Splitwise.Model
         Task<bool> AddMember(int id , List<string> users);
         List<List<string>> GetMemberofGroup(int id);
         Task<bool> EditGroup(int id, Group group);
+        Task<bool> DeleteGroup(string name ,int id);
 
     }
 }

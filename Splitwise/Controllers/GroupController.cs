@@ -56,6 +56,21 @@ namespace Splitwise.Controllers
              
             return _groupRepository.EditGroup(id,group);
         }
+        
+        [HttpDelete("DeleteGroup/{id}/{name}")]
+        public async Task<IActionResult> DeleteGroup(string name ,int id)
+        {
+             
+            var ans=  await _groupRepository.DeleteGroup(name , id);
+            if (ans)
+            {
+                return Ok("Group Delete Successfully!");
+            }
+            else
+            {
+                return BadRequest("Please Clear All the Expense to Delete this group ");
+            }
+        }
 
 
     }

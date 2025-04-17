@@ -18,6 +18,8 @@ namespace Splitwise.Model
         public DbSet<Group> Group { get; set; }
         public DbSet<GroupMember> GroupMember { get; set; }
         public DbSet<Expense> Expense { get; set; }
+        public DbSet<Settle> Settle { get; set; }
+
 
 
     }

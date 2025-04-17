@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Splitwise.Model;
+using Splitwise.Model.Chat;
+using Splitwise.Model.Helper;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,7 +29,12 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 
 builder.Services.AddScoped<IGroupRepository,GroupRepository>();
 builder.Services.AddScoped<IExpenseRepository,ExpenseRepository>();
+builder.Services.AddScoped<ISettleRepository,SettleRepository>();
+builder.Services.AddScoped(typeof(Lazy<>), typeof(LazyService<>));
 
+//SignalR
+
+builder.Services.AddSignalR();
 
 //JWT
 builder.Services.AddAuthentication(options =>
@@ -87,5 +94,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<ChatHub>("chat-hub");
 
 app.Run();

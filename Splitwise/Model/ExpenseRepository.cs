@@ -120,7 +120,17 @@ namespace Splitwise.Model
                 Where(e => e.GroupId == id && e.PaidBy != name && e.PaidTo == name).
                 Sum(e => e.Amount);
 
-            decimal UserAmount = RecieveAmount - GivenAmount;
+            decimal RecieveAmountSettle = _splitwiseContext.Settle.
+               Where(e => e.GroupId == id && e.PaidBy == name && e.PaidTo != name).
+               Sum(e => e.Amount);
+
+            decimal GivenAmountSettle = _splitwiseContext.Settle.
+                Where(e => e.GroupId == id && e.PaidBy != name && e.PaidTo == name).
+                Sum(e => e.Amount);
+
+
+            //decimal UserAmount = RecieveAmount - GivenAmount;
+            decimal UserAmount = RecieveAmount + RecieveAmountSettle - GivenAmount - GivenAmountSettle;
             return UserAmount;
             
         }
@@ -137,11 +147,20 @@ namespace Splitwise.Model
                 Where(e => e.GroupId == id && e.PaidBy == name && e.PaidTo == item).
                 Sum(e => e.Amount);
 
-                decimal GivenAmount = _splitwiseContext.Expense.
-                    Where(e => e.GroupId == id && e.PaidBy == item && e.PaidTo == name).
-                    Sum(e => e.Amount);
+                decimal RecieveAmountSettle = _splitwiseContext.Settle.
+               Where(e => e.GroupId == id && e.PaidBy == name && e.PaidTo == item).
+               Sum(e => e.Amount);
 
-                decimal UserAmount = RecieveAmount - GivenAmount;
+                decimal GivenAmount = _splitwiseContext.Expense.
+                Where(e => e.GroupId == id && e.PaidBy == item && e.PaidTo == name).
+                Sum(e => e.Amount); 
+                
+                decimal GivenAmountSettle = _splitwiseContext.Settle.
+                Where(e => e.GroupId == id && e.PaidBy == item && e.PaidTo == name).
+                Sum(e => e.Amount);
+
+                //decimal UserAmount = RecieveAmount - GivenAmount;
+                decimal UserAmount = RecieveAmount + RecieveAmountSettle - GivenAmount - GivenAmountSettle;
                 KeyValuePair<string, decimal> kp = new KeyValuePair<string, decimal>(item, UserAmount);
                 ls.Add(kp);
 
