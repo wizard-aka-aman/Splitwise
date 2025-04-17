@@ -49,8 +49,14 @@ namespace Splitwise.Controllers
             var items = _groupRepository.GetMemberofGroup(id);
             return items;
         }
+        
+        [HttpPut("EditGroup/{id}")]
+        public Task<bool> EditGroup(int id, Group group)
+        {
+             
+            return _groupRepository.EditGroup(id,group);
+        }
 
-       
 
     }
 }

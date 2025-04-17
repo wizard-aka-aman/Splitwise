@@ -88,5 +88,20 @@ namespace Splitwise.Model
             return GetMemberofGroup;
         }
 
+        public async Task<bool> EditGroup(int id ,Group group)
+        {
+            
+
+            var getGroup = await _splitwiseContext.Group.FindAsync(id);
+            if (getGroup == null)
+            {
+                return false;
+            }
+            getGroup.Name = group.Name;
+            await _splitwiseContext.SaveChangesAsync(); 
+            return true;
+
+            
+        }
     }
 }
