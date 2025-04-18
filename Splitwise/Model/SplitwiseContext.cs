@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Splitwise.Model.Chat;
 
 namespace Splitwise.Model
 {
@@ -19,7 +20,7 @@ namespace Splitwise.Model
         public DbSet<GroupMember> GroupMember { get; set; }
         public DbSet<Expense> Expense { get; set; }
         public DbSet<Settle> Settle { get; set; }
-
+        public DbSet<ChatMessage> Messages { get; set; }
 
 
     }

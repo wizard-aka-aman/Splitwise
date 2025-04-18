@@ -4,9 +4,20 @@ namespace Splitwise.Model.Chat
 {
     public class ChatHub :Hub
     {
-        public override async Task OnConnectedAsync()
+
+        public async Task SendMessage(string groupName, string user, string message)
         {
-            await Clients.All.SendAsync("RecieveMessage" , $"{Context.ConnectionId} has Joined")
+            await Clients.Group(groupName).SendAsync("ReceiveMessage", user, message);
+        }
+
+        public async Task JoinGroup(string groupName)
+        {
+            await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
+        }
+
+        public async Task LeaveGroup(string groupName)
+        {
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
         }
     }
 }

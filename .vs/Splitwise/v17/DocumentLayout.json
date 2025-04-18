@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|c:\\users\\verma\\onedrive\\desktop\\com projects c#\\splitwise\\splitwise\\model\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|solutionrelative:splitwise\\model\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|c:\\users\\verma\\onedrive\\desktop\\com projects c#\\splitwise\\splitwise\\model\\chat\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|solutionrelative:splitwise\\model\\chat\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|c:\\users\\verma\\onedrive\\desktop\\com projects c#\\splitwise\\splitwise\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|solutionrelative:splitwise\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|c:\\users\\verma\\onedrive\\desktop\\com projects c#\\splitwise\\splitwise\\model\\chat\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|solutionrelative:splitwise\\model\\chat\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|c:\\users\\verma\\onedrive\\desktop\\com projects c#\\splitwise\\splitwise\\model\\expenserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|solutionrelative:splitwise\\model\\expenserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|c:\\users\\verma\\onedrive\\desktop\\com projects c#\\splitwise\\splitwise\\controllers\\chat\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|solutionrelative:splitwise\\controllers\\chat\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|c:\\users\\verma\\onedrive\\desktop\\com projects c#\\splitwise\\splitwise\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|solutionrelative:splitwise\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|c:\\users\\verma\\onedrive\\desktop\\com projects c#\\splitwise\\splitwise\\model\\helper\\lazyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|solutionrelative:splitwise\\model\\helper\\lazyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|c:\\users\\verma\\onedrive\\desktop\\com projects c#\\splitwise\\splitwise\\model\\splitwisecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|solutionrelative:splitwise\\model\\splitwisecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|c:\\users\\verma\\onedrive\\desktop\\com projects c#\\splitwise\\splitwise\\migrations\\20250418055315_adding_chat_feature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|solutionrelative:splitwise\\migrations\\20250418055315_adding_chat_feature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|c:\\users\\verma\\onedrive\\desktop\\com projects c#\\splitwise\\splitwise\\model\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{774F0214-6C30-4BB5-B370-CBA1A1A8CD96}|Splitwise\\Splitwise.csproj|solutionrelative:splitwise\\model\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,28 +50,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GroupController.cs",
-              "DocumentMoniker": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Controllers\\GroupController.cs",
-              "RelativeDocumentMoniker": "Splitwise\\Controllers\\GroupController.cs",
-              "ToolTip": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Controllers\\GroupController.cs",
-              "RelativeToolTip": "Splitwise\\Controllers\\GroupController.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAUwEYAAABJAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "20250418055315_adding_chat_feature.cs",
+              "DocumentMoniker": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Migrations\\20250418055315_adding_chat_feature.cs",
+              "RelativeDocumentMoniker": "Splitwise\\Migrations\\20250418055315_adding_chat_feature.cs",
+              "ToolTip": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Migrations\\20250418055315_adding_chat_feature.cs",
+              "RelativeToolTip": "Splitwise\\Migrations\\20250418055315_adding_chat_feature.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T12:42:21.875Z",
+              "WhenOpened": "2025-04-18T05:53:16.517Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "LazyService.cs",
-              "DocumentMoniker": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\Helper\\LazyService.cs",
-              "RelativeDocumentMoniker": "Splitwise\\Model\\Helper\\LazyService.cs",
-              "ToolTip": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\Helper\\LazyService.cs",
-              "RelativeToolTip": "Splitwise\\Model\\Helper\\LazyService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Title": "SplitwiseContext.cs",
+              "DocumentMoniker": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\SplitwiseContext.cs",
+              "RelativeDocumentMoniker": "Splitwise\\Model\\SplitwiseContext.cs",
+              "ToolTip": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\SplitwiseContext.cs",
+              "RelativeToolTip": "Splitwise\\Model\\SplitwiseContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T12:40:08.375Z",
+              "WhenOpened": "2025-04-18T05:46:34.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChatController.cs",
+              "DocumentMoniker": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Controllers\\Chat\\ChatController.cs",
+              "RelativeDocumentMoniker": "Splitwise\\Controllers\\Chat\\ChatController.cs",
+              "ToolTip": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Controllers\\Chat\\ChatController.cs",
+              "RelativeToolTip": "Splitwise\\Controllers\\Chat\\ChatController.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAD4vw0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T05:45:42.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChatMessage.cs",
+              "DocumentMoniker": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\Chat\\ChatMessage.cs",
+              "RelativeDocumentMoniker": "Splitwise\\Model\\Chat\\ChatMessage.cs",
+              "ToolTip": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\Chat\\ChatMessage.cs",
+              "RelativeToolTip": "Splitwise\\Model\\Chat\\ChatMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T05:44:38.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GroupRepository.cs",
+              "DocumentMoniker": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\GroupRepository.cs",
+              "RelativeDocumentMoniker": "Splitwise\\Model\\GroupRepository.cs",
+              "ToolTip": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\GroupRepository.cs",
+              "RelativeToolTip": "Splitwise\\Model\\GroupRepository.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAvwCgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T04:43:12.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\Chat\\ChatHub.cs",
+              "RelativeDocumentMoniker": "Splitwise\\Model\\Chat\\ChatHub.cs",
+              "ToolTip": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\Chat\\ChatHub.cs",
+              "RelativeToolTip": "Splitwise\\Model\\Chat\\ChatHub.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAkwAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T13:39:55.837Z",
               "EditorCaption": ""
             },
             {
@@ -74,35 +134,9 @@
               "RelativeDocumentMoniker": "Splitwise\\Program.cs",
               "ToolTip": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Program.cs",
               "RelativeToolTip": "Splitwise\\Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAEwB8AAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAuwFIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-17T12:39:19.683Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GroupRepository.cs",
-              "DocumentMoniker": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\GroupRepository.cs",
-              "RelativeDocumentMoniker": "Splitwise\\Model\\GroupRepository.cs",
-              "ToolTip": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\GroupRepository.cs",
-              "RelativeToolTip": "Splitwise\\Model\\GroupRepository.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAAAIcAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T11:36:17.311Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ExpenseRepository.cs",
-              "DocumentMoniker": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\ExpenseRepository.cs",
-              "RelativeDocumentMoniker": "Splitwise\\Model\\ExpenseRepository.cs",
-              "ToolTip": "C:\\Users\\verma\\OneDrive\\Desktop\\Com Projects C#\\Splitwise\\Splitwise\\Model\\ExpenseRepository.cs",
-              "RelativeToolTip": "Splitwise\\Model\\ExpenseRepository.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAwwC8AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T10:24:00.488Z",
               "EditorCaption": ""
             }
           ]

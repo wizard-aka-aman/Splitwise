@@ -64,16 +64,28 @@ builder.Services.AddAuthentication();
 
 
 
-
 // Add CORS policy
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAll",
+//        policy =>
+//        {
+//            policy.AllowAnyOrigin()
+//                  .AllowAnyMethod()
+//                  .AllowAnyHeader(); 
+//        });
+//});
+
+// Add CORS policy with chat
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
         policy =>
         {
-            policy.AllowAnyOrigin()
-                  .AllowAnyMethod()
-                  .AllowAnyHeader();
+            policy.WithOrigins("http://localhost:4200") // Angular's dev server
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowCredentials();
         });
 });
 var app = builder.Build();
@@ -95,6 +107,17 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapHub<ChatHub>("chat-hub");
+//app.UseEndpoints(endpoint =>
+//{
+//    endpoint.MapHub<ChatHub>("/chats");
+//});
+
+//chatgpt
+//app.UseEndpoints(endpoints =>
+//{
+//    //endpoints.MapControllers();
+//    endpoints.MapHub<ChatHub>("/chatHub");
+//});
+app.MapHub<ChatHub>("/chatHub");
 
 app.Run();
