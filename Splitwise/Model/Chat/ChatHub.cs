@@ -8,6 +8,7 @@ namespace Splitwise.Model.Chat
         public async Task SendMessage(string groupName, string user, string message)
         {
             await Clients.Group(groupName).SendAsync("ReceiveMessage", user, message);
+            await Clients.Group(user).SendAsync("ReceiveMessage", user, message);
         }
 
         public async Task JoinGroup(string groupName)
