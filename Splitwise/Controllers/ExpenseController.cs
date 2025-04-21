@@ -75,6 +75,20 @@ namespace Splitwise.Controllers
         {
             return _expenseRepository.TotalExpense(id);
         }
+
+        [HttpGet("TotalExpenseForEveryUser/{id}")]
+        public IActionResult TotalExpenseForEveryUser(int id)
+        {
+           var expensekv = _expenseRepository.TotalExpenseForEveryUser(id);
+            return Ok(expensekv);
+        }
+        [HttpGet("TotalExpenseOfLoggedInUser/{name}")]
+        public IActionResult TotalExpenseOfLoggedInUser(string name)
+        {
+            var loggedIn = _expenseRepository.TotalExpenseOfLoggedInUser(name);
+            return Ok(loggedIn);
+        }
+
     }
 
 }

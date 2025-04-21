@@ -14,5 +14,7 @@ namespace Splitwise.Model
         List<ExpenseWithGroupNameDTO> GetAllActivity(string name);
         decimal TotalExpense(int id);
 
+        List<KeyValuePair<string, decimal>> TotalExpenseForEveryUser(int id);
+        List<KeyValuePair<string, decimal>> TotalExpenseOfLoggedInUser(string name);
     }
 }

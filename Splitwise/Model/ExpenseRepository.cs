@@ -1,6 +1,7 @@
 ﻿
 using System;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Splitwise.Dto;
 
@@ -173,6 +174,45 @@ namespace Splitwise.Model
             decimal total = 0;
           total =  _splitwiseContext.Expense.Where(e => e.GroupId == id).Sum(e => e.Amount);
             return total;
+        }
+
+        public List<KeyValuePair<string, decimal>> TotalExpenseForEveryUser(int id)
+        {
+            var ExpenseOfThatGroup = _splitwiseContext.Expense.Where(e => e.GroupId == id).ToList();
+
+            List<KeyValuePair<string, decimal>> kv = new List<KeyValuePair<string, decimal>>();
+
+            var forfindGroupMemberOfThatGroup1 = _groupRepository.GetMemberofGroup(id);
+
+            var GroupMemberOfThatGroup = forfindGroupMemberOfThatGroup1[0].ToList();
+
+            foreach(var  group in GroupMemberOfThatGroup)
+            {
+                decimal UserAmount = 0;
+               UserAmount = ExpenseOfThatGroup.Where(e => e.PaidBy == group).Sum(e => e.Amount);
+                KeyValuePair<string, decimal> kp = new KeyValuePair<string, decimal>(group, UserAmount);
+                kv.Add(kp);
+            }
+            return kv;
+
+        }
+
+        public List<KeyValuePair<string, decimal>> TotalExpenseOfLoggedInUser(string name)
+        {
+            var GroupsOfLoggedInUser = _groupRepository.GetAll(name);
+
+            List<KeyValuePair<string, decimal>> kv = new List<KeyValuePair<string, decimal>>();
+
+            foreach (var group in GroupsOfLoggedInUser)
+            {
+                decimal UserAmount = 0;
+
+                UserAmount = _splitwiseContext.Expense.Where(e => e.GroupId == group.GroupId && e.PaidBy == name).Sum(e => e.Amount); 
+
+                KeyValuePair<string, decimal> kp = new KeyValuePair<string, decimal>(group.Name, UserAmount);
+                kv.Add(kp);
+            }
+            return kv;
         }
     }
 }
