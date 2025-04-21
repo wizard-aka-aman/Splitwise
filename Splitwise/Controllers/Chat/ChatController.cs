@@ -26,10 +26,18 @@ namespace Splitwise.Controllers.Chat
             return Ok(messages);
         }
 
+        [HttpGet("{groupName}/{reciver}")]
+        public async Task<IActionResult> GetMessages(string groupName ,string reciver)
+        {
+            var messages = await _context.Messages.Where(e => e.GroupName == groupName && e.Sender == reciver ||  e.GroupName == reciver && e.Sender == groupName).ToListAsync(); 
+            //var messages1 = await _context.Messages.Where().ToListAsync();
+            return Ok(messages);
+        }
+
         [HttpPost]
         public async Task<IActionResult> SaveMessage([FromBody] ChatMessage message)
         {
-            message.SentAt = DateTime.UtcNow;
+            message.SentAt = DateTime.Now;
             _context.Messages.Add(message);
             await _context.SaveChangesAsync();
             return Ok();

@@ -72,6 +72,15 @@ namespace Splitwise.Controllers
             }
         }
 
+        
+
+        [HttpGet("GetGroupById/{id}")]
+        public Group GetGroupById(int id)
+        {
+
+            var items = _groupRepository.GetGroupById(id);
+            return items;
+        }
 
     }
 }

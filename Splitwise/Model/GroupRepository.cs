@@ -141,5 +141,16 @@ namespace Splitwise.Model
             }
             return false;
         }
+
+        public  Group  GetGroupById(int id)
+        {
+            //var findgroup =  _splitwiseContext.Group.Where(e => e.GroupId == id);
+            var findgroup = _splitwiseContext.Group.Find(id);
+            if (findgroup != null)
+            {
+                return findgroup;
+            }
+            return findgroup;
+        }
     }
 }
