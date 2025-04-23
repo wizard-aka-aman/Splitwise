@@ -11,5 +11,7 @@ namespace Splitwise.Model
         public decimal Amount { get; set; }
         public DateTime AddedWhen { get; set; } = DateTime.Now;
         public string Description { get; set; }
+        public string Image {  get; set; }
+        //public FormFile ImageFile { get; set; }
     }
 }

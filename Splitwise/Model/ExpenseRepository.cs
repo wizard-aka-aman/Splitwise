@@ -1,6 +1,7 @@
 ﻿
 using System;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Splitwise.Dto;
@@ -20,6 +21,7 @@ namespace Splitwise.Model
         public async Task<Expense> CreateExpense(ExpenseDTO expensedto)
         {
             Expense expense = new Expense();
+            expensedto.paidto = expensedto.paidto[0].Split(",").ToList();
             for (int i = 0; i < expensedto.paidto.Count(); i++)
             {
                 expense = new Expense
@@ -29,11 +31,13 @@ namespace Splitwise.Model
                     PaidBy = expensedto.paidby,
                     Amount = expensedto.amount / expensedto.paidto.Count(),
                     PaidTo = expensedto.paidto[i],
-                    Description = expensedto.description
+                    Description = expensedto.description,
+                    Image = "null by develper"
 
                 };
                 _splitwiseContext.Expense.Add(expense);
                 await _splitwiseContext.SaveChangesAsync();
+                await Image(expensedto.imageFile, expense.Id);
             }
             return expense;
         }
@@ -213,6 +217,43 @@ namespace Splitwise.Model
                 kv.Add(kp);
             }
             return kv;
+        }
+        public async Task Image(IFormFile filecollection , int id)
+        {
+            int passcount = 0;
+            int errorcount = 0;
+
+            try
+            {
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    await filecollection.CopyToAsync(stream);
+
+                    // Convert to base64 string
+                    byte[] imageBytes = stream.ToArray();
+                    string base64Image = Convert.ToBase64String(imageBytes);
+
+                    //expensedto.Image = base64Image;
+
+                    // OPTIONAL: You should map DTO to your Expense entity and update DB here
+                    var expense = await _splitwiseContext.Expense.FindAsync(id);
+                    if (expense != null)
+                    {
+                        expense.Image = base64Image;
+                        await _splitwiseContext.SaveChangesAsync();
+                    }
+
+                    passcount++;
+                }
+
+
+                 
+            }
+            catch (Exception ex)
+            {
+                 
+            }
         }
     }
 }

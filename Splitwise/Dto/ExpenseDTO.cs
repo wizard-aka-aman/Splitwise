@@ -7,5 +7,8 @@
         public List<string> paidto { get; set; }
         public decimal amount { get; set; }
         public string description { get; set; }
+
+        public string image { get; set; }
+        public IFormFile imageFile { get; set; }
     }
 }
