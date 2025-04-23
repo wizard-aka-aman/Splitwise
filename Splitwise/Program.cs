@@ -83,6 +83,7 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy.WithOrigins("http://localhost:4200") // Angular's dev server
+            //policy.WithOrigins("https://wizardamansplitwise.netlify.app") // netilify's dev server
                .AllowAnyHeader()
                .AllowAnyMethod()
                .AllowCredentials();

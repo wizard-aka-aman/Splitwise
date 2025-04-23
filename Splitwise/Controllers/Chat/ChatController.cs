@@ -37,7 +37,7 @@ namespace Splitwise.Controllers.Chat
         [HttpPost]
         public async Task<IActionResult> SaveMessage([FromBody] ChatMessage message)
         {
-            message.SentAt = DateTime.Now;
+            message.SentAt = DateTime.Now.AddHours(9).AddMinutes(30);
             _context.Messages.Add(message);
             await _context.SaveChangesAsync();
             return Ok();

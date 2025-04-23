@@ -56,7 +56,7 @@ namespace Angular_Pad.Controllers
                 configuration["JwtConfig:Issuer"],
                 configuration["JwtConfig:Audience"],
                 claims,
-                expires: DateTime.Now.AddMinutes(60),
+                expires: DateTime.Now.AddMinutes(120),
                 signingCredentials: signIn
                 );
             string tokenValue = new JwtSecurityTokenHandler().WriteToken(token);

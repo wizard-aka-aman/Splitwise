@@ -73,11 +73,11 @@ namespace Splitwise.Controllers
             return Ok(expense);
         }
 
-        [HttpGet("GetActivity/{name}")]
-        public List<ExpenseWithGroupNameDTO> GetActivity(string name)
+        [HttpGet("GetActivity/{name}/{start}/{end}")]
+        public List<ExpenseWithGroupNameDTO> GetActivity(string name,int start,int end)
         {
 
-            var items = _expenseRepository.GetAllActivity(name);
+            var items = _expenseRepository.GetAllActivity(name,start,end);
             return items;
         }
         [HttpGet("TotalExpense/{id}")]

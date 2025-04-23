@@ -26,7 +26,7 @@ namespace Splitwise.Model
             {
                 expense = new Expense
                 {
-                    AddedWhen = DateTime.Now,
+                    AddedWhen = DateTime.Now.AddHours(9).AddMinutes(30),
                     GroupId = expensedto.groupid,
                     PaidBy = expensedto.paidby,
                     Amount = expensedto.amount / expensedto.paidto.Count(),
@@ -57,7 +57,7 @@ namespace Splitwise.Model
                 if (paidToDict[KeysList[i]] > 0) { 
                 expense = new Expense
                 {
-                    AddedWhen = DateTime.Now,
+                    AddedWhen = DateTime.Now.AddHours(9).AddMinutes(30),
                     GroupId = expensedto.groupid,
                     PaidBy = expensedto.paidby,
                     Amount = paidToDict[KeysList[i]],
@@ -73,7 +73,7 @@ namespace Splitwise.Model
             return expense;
         }
 
-        public List<ExpenseWithGroupNameDTO> GetAllActivity(string name)
+        public List<ExpenseWithGroupNameDTO> GetAllActivity(string name , int start ,int end)
         {
             var userGroups = _groupRepository.GetAll(name); // Assume this gives List<Group> with GroupId and GroupName
 
@@ -100,7 +100,7 @@ namespace Splitwise.Model
                     Description = e.Description,
                     GroupName = groupDict[e.GroupId] // quick lookup
                 })
-                .OrderByDescending(e => e.AddedWhen)
+                .OrderByDescending(e => e.AddedWhen).Skip(start).Take(end)
                 .ToList();
 
             return result;
