@@ -101,7 +101,7 @@ namespace Angular_Pad.Controllers
                 else
                 {
                     //return Ok("Register Failed ! Please try again");
-                    return BadRequest("Register Failed ! Please try again");
+                    return BadRequest("Username can't contian spaces and special character");
                 }
             }
             //return Ok("User Already Exist");

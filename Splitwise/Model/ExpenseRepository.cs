@@ -73,7 +73,7 @@ namespace Splitwise.Model
             return expense;
         }
 
-        public List<ExpenseWithGroupNameDTO> GetAllActivity(string name , int start ,int end)
+        public List<ExpenseWithGroupNameDTO> GetAllActivity(string name , int start )
         {
             var userGroups = _groupRepository.GetAll(name); // Assume this gives List<Group> with GroupId and GroupName
 
@@ -86,6 +86,7 @@ namespace Splitwise.Model
             var expenses = _splitwiseContext.Expense
                 .Where(e => groupIds.Contains(e.GroupId))
                 .ToList();
+ 
 
             // Map to custom object with group name and sort
             var result = expenses
@@ -99,8 +100,8 @@ namespace Splitwise.Model
                     AddedWhen = e.AddedWhen,
                     Description = e.Description,
                     GroupName = groupDict[e.GroupId] // quick lookup
-                })
-                .OrderByDescending(e => e.AddedWhen).Skip(start).Take(end)
+                }).Where(e => e.PaidTo != e.PaidBy)
+                .OrderByDescending(e => e.AddedWhen).Skip(start).Take(10)
                 .ToList();
 
             return result;
